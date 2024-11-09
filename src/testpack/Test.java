@@ -1,6 +1,0 @@
-package testpack;
-
-class Test {
-
-    
-}
