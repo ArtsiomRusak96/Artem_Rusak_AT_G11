@@ -1,4 +1,4 @@
-package StudyPackage;
+package studypack;
 
 public class FirstLesson {
 

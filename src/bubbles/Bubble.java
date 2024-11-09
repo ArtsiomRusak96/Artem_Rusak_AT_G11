@@ -2,22 +2,27 @@ package bubbles;
 
 public class Bubble {
 
-    final double volume = 0.3;
+    private final double volume = 0.3;
     private String gasComposition;
+
 
     public Bubble(String gasComposition) {
         this.gasComposition = gasComposition;
     }
 
-    public String getGasComposition(String gasComposition) {
+    public String getGasComposition() {
         return gasComposition;
     }
 
-    public void setGasComposition() {
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setGasComposition(String gasComposition) {
         this.gasComposition = gasComposition;
     }
 
     public void pop() {
-        System.out.println("Cramp");
+        System.out.println("Cramp!");
     }
 }
