@@ -1,4 +1,4 @@
-package testpack;
+package homework.day0;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package pretask;
+package homework.day3.pretask.math;
 
 public class SimpleMathExample {
 

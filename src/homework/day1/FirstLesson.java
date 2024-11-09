@@ -1,4 +1,4 @@
-package studypack;
+package homework.day1;
 
 public class FirstLesson {
 

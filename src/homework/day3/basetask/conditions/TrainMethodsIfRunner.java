@@ -1,4 +1,4 @@
-package basetask;
+package homework.day3.basetask.conditions;
 
 public class TrainMethodsIfRunner {
 

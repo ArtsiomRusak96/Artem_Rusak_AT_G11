@@ -1,4 +1,4 @@
-package pretask;
+package homework.day3.pretask.variables;
 
 public class IncrementDecrementExample {
 

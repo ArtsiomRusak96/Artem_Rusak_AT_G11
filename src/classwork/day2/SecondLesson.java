@@ -1,4 +1,4 @@
-package studypack;
+package classwork.day2;
 
 import java.util.Random;
 

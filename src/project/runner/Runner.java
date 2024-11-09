@@ -1,4 +1,6 @@
-package bubbles;
+package project.runner;
+
+import project.boxing.Bottle;
 
 public class Runner {
 
