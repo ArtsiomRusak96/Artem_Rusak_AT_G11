@@ -64,7 +64,6 @@ public class ArraysAndConsoleTask {
 //        System.out.println(arrayLength);
         int sum = 0;
         for (int i : array) {
-            System.out.println(i);
             if (i % arrayLength == 0) {
                 sum += i;
             }
