@@ -1,5 +1,7 @@
 package project.liquids;
 
+import project.bubbles.Bubble;
+
 public class SparklingWater extends Water {
 
     private Bubble[] bubbles;
