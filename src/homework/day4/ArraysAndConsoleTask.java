@@ -25,6 +25,7 @@ public class ArraysAndConsoleTask {
         int sum = arraysAndConsoleTask.sumArrayValuesSecond(array);
         System.out.println(sum);
 
+        arraysAndConsoleTask.drawCow();
     }
 
 
@@ -69,5 +70,13 @@ public class ArraysAndConsoleTask {
             }
         }
         return sum;
+    }
+
+    public void drawCow() {
+        System.out.println(" ^__^");
+        System.out.println(" (oo)\\\\_______");
+        System.out.println("(__)\\ ) \\/\\   \\");
+        System.out.println("     ||----w||-\\");
+        System.out.println("     ||     ||");
     }
 }
