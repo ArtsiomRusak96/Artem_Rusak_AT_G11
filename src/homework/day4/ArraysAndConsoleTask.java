@@ -8,7 +8,7 @@ public class ArraysAndConsoleTask {
 
         ArraysAndConsoleTask arraysAndConsoleTask = new ArraysAndConsoleTask();
 
-        int[] array = new int[20];
+        int[] array = new int[47];
         int n = 7;
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
@@ -21,11 +21,15 @@ public class ArraysAndConsoleTask {
         for (int i : newArray) {
             System.out.println(i);
         }
+
+        int sum = arraysAndConsoleTask.sumArrayValuesSecond(array);
+        System.out.println(sum);
+
     }
 
-    int sum = 0;
 
     public void sumArrayValues(int[] array, int n) {
+        int sum = 0;
         for (int i = n - 1; i < array.length; i += n) {
 //            System.out.println(i + " = " + array[i]);
             sum += array[i];
@@ -49,5 +53,21 @@ public class ArraysAndConsoleTask {
             }
         }
         return newArray;
+    }
+
+    public int sumArrayValuesSecond(int[] array) {
+        int arrayLength = array.length;
+        while (arrayLength > 9) {
+            arrayLength /= 10;
+        }
+//        System.out.println(arrayLength);
+        int sum = 0;
+        for (int i : array) {
+            System.out.println(i);
+            if (i % arrayLength == 0) {
+                sum += i;
+            }
+        }
+        return sum;
     }
 }
