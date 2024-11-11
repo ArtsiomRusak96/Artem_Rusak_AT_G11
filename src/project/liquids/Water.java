@@ -2,12 +2,12 @@ package project.liquids;
 
 public abstract class Water {
 
-    private String color;
-    private double transparency;
-    private String smell;
-    private double temperature;
+    private String color = "no";
+    private String transparency = "transparent";
+    private String smell = "no";
+    private int temperature = 0;
 
-    public Water(String color, double transparency, String smell, double temperature) {
+    public Water(String color, String transparency, String smell, int temperature) {
         this.color = color;
         this.transparency = transparency;
         this.smell = smell;
@@ -18,7 +18,7 @@ public abstract class Water {
         return color;
     }
 
-    public double getTransparency() {
+    public String getTransparency() {
         return transparency;
     }
 
@@ -26,7 +26,7 @@ public abstract class Water {
         return smell;
     }
 
-    public double getTemperature() {
+    public int getTemperature() {
         return temperature;
     }
 
@@ -34,7 +34,7 @@ public abstract class Water {
         this.color = color;
     }
 
-    public void setTransparency(double transparency) {
+    public void setTransparency(String transparency) {
         this.transparency = transparency;
     }
 
@@ -42,7 +42,7 @@ public abstract class Water {
         this.smell = smell;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 }

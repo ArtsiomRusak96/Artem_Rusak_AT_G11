@@ -8,7 +8,7 @@ public class SparklingWater extends Water {
     private int bubblesCountForLiter = 10000;
 
     public SparklingWater(double volume) {
-        super("color", 0.4, "smell", 22.2);
+        super("color", "transparent", "smell", 20);
         int neededBubbles = (int) (bubblesCountForLiter * volume);
         Bubble bubble = new Bubble("Gas");
         Bubble[] bubbles = new Bubble[neededBubbles];
