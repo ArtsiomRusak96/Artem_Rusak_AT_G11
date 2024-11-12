@@ -4,11 +4,12 @@ import project.bubbles.Bubble;
 
 public class SparklingWater extends Water {
 
+    private boolean isOpened;
     private Bubble[] bubbles;
-    private int bubblesCountForLiter = 10000;
 
-    public SparklingWater(double volume) {
+    public SparklingWater(double volume, boolean isOpened) {
         super("color", "transparent", "smell", 20);
+        int bubblesCountForLiter = 10000;
         int neededBubbles = (int) (bubblesCountForLiter * volume);
         Bubble bubble = new Bubble("Gas");
         Bubble[] bubbles = new Bubble[neededBubbles];
@@ -18,6 +19,7 @@ public class SparklingWater extends Water {
 //        Suggestion from IDEA:
 //        Arrays.fill(bubbles, bubble);
         pump(bubbles);
+        isOpened();
     }
 
     public void pump(Bubble[] bubbles) {
@@ -27,7 +29,33 @@ public class SparklingWater extends Water {
         }
     }
 
-    public void degas() {
+    public void setOpened(boolean isOpened) throws InterruptedException {
+        this.isOpened = true;
+        degas();
+    }
+
+    private void isOpened() {
+
+    }
+
+    public void degas() throws InterruptedException {
+        int bubblesCountForRemove = 10 + 5 * getTemperature();
+        int countRemoves = bubbles.length / bubblesCountForRemove;
+        System.out.println(bubblesCountForRemove);
+
+        int removeAction = 0;
+        for (int i = 1; i < countRemoves; i++) {
+            int x = bubblesCountForRemove + removeAction;
+            for (int j = removeAction; j < x; j++) {
+                if (bubbles[j] != null) {
+                    bubbles[j].cramp();
+                    bubbles[j] = null;
+                    removeAction++;
+                }
+            }
+//            System.out.println(removeAction);
+            Thread.sleep(1000);
+        }
         for (int i = 0; i < bubbles.length; i++) {
             if (bubbles[i] != null) {
 //                System.out.println(i);

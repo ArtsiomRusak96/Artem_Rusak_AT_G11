@@ -7,13 +7,13 @@ public class Bottle {
     private double volume;
     private SparklingWater sparklingWater;
 
-    public void open() {
+    public void open() throws InterruptedException {
         sparklingWater.degas();
     }
 
     public Bottle(double volume) {
         this.volume = volume;
-        this.sparklingWater = new SparklingWater(volume);
+        this.sparklingWater = new SparklingWater(volume, false);
     }
 
     public double getVolume() {
