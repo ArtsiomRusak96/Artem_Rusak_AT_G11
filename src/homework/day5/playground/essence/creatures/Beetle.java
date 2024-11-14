@@ -2,7 +2,7 @@ package homework.day5.playground.essence.creatures;
 
 import homework.day3.basetask.objects.Bee;
 
-public class Beetle extends Insect {
+public class Beetle extends Insect implements Crawlable {
 
     public Beetle(int mass, String name) {
         super(mass, name);
