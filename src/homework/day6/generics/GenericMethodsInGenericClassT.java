@@ -1,7 +1,7 @@
-package homework.day6;
+package homework.day6.generics;
 
 public class GenericMethodsInGenericClassT<T> {
-    
+
     public void genericMethodOneGenArg(T arg) {
         System.out.printf("I am object of %s class", arg.getClass().getSimpleName());
     }
