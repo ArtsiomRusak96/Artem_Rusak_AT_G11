@@ -1,7 +1,5 @@
 package homework.day6.generics;
 
-import homework.day5.playground.essence.craft.air.Airplane;
-
 public class GenericMethodsInGenericClassTwoParams<X, Y> {
 
     public String genericMethodGenArgs(X arg1) {
@@ -18,7 +16,8 @@ public class GenericMethodsInGenericClassTwoParams<X, Y> {
         System.out.printf("I got an object of %s class and string with %d characters\n", arg1.getClass().getSimpleName(), string.length());
     }
 
-    public void genericMethodHalfGenArgs(String string, Y arg2) {
+    public void genericMethodHalfGenArgs(Integer x, Y arg2) {
+        String string = x.toString();
         System.out.printf("I got an object of %s class and string with %d characters\n", arg2.getClass().getSimpleName(), string.length());
     }
 
