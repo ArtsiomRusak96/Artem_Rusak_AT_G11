@@ -4,7 +4,7 @@ package homework.day6.generics;
 import homework.day5.playground.essence.craft.air.Plane;
 import homework.day5.playground.essence.craft.air.Copter;
 import homework.day5.playground.essence.craft.air.Rocket;
-import homework.day5.playground.essence.craft.field.Automobile;
+import homework.day5.playground.essence.craft.field.Car;
 import homework.day5.playground.essence.craft.field.Moped;
 import homework.day5.playground.essence.craft.field.Motorbike;
 import homework.day5.playground.essence.craft.hand.Bottle;
@@ -25,7 +25,7 @@ public class GenericMethodsInGenericClassTRunner {
         GenericMethodsInGenericClassT<Plane> airplaneGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Copter> copterGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Rocket> rocketGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
-        GenericMethodsInGenericClassT<Automobile> automobileGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
+        GenericMethodsInGenericClassT<Car> automobileGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Moped> mopedGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Motorbike> motorbikeGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Bottle> bottleGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
@@ -83,11 +83,11 @@ public class GenericMethodsInGenericClassTRunner {
         System.out.println(rocketGenericMethodsInGenericClassT.genericMethodTwoGenArgs(rocket, rocket2));
         rocketGenericMethodsInGenericClassT.genericMethodHalfGenArgs(rocket, string2);
 
-        Automobile automobile = new Automobile(3000, "BMW");
-        Automobile automobile2 = new Automobile(3800, "Audi");
-        automobileGenericMethodsInGenericClassT.genericMethodOneGenArg(automobile);
-        System.out.println(automobileGenericMethodsInGenericClassT.genericMethodTwoGenArgs(automobile, automobile2));
-        automobileGenericMethodsInGenericClassT.genericMethodHalfGenArgs(automobile, string2);
+        Car car = new Car(3000, "BMW");
+        Car car2 = new Car(3800, "Audi");
+        automobileGenericMethodsInGenericClassT.genericMethodOneGenArg(car);
+        System.out.println(automobileGenericMethodsInGenericClassT.genericMethodTwoGenArgs(car, car2));
+        automobileGenericMethodsInGenericClassT.genericMethodHalfGenArgs(car, string2);
 
         Moped moped = new Moped(700, "Yamaha");
         Moped moped2 = new Moped(600, "Honda");
