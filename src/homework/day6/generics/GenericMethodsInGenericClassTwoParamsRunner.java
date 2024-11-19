@@ -1,6 +1,6 @@
 package homework.day6.generics;
 
-import homework.day5.playground.essence.craft.air.Airplane;
+import homework.day5.playground.essence.craft.air.Plane;
 import homework.day5.playground.essence.craft.air.Copter;
 import homework.day5.playground.essence.craft.air.Rocket;
 import homework.day5.playground.essence.craft.field.Automobile;
@@ -22,7 +22,7 @@ public class GenericMethodsInGenericClassTwoParamsRunner {
         GenericMethodsInGenericClassTwoParams<String, Integer> stringIntegerGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
         GenericMethodsInGenericClassTwoParams<String, Double> stringDoubleGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
         GenericMethodsInGenericClassTwoParams<Integer, Integer> integerIntegerGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
-        GenericMethodsInGenericClassTwoParams<Airplane, Copter> airplaneCopterGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
+        GenericMethodsInGenericClassTwoParams<Plane, Copter> airplaneCopterGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
         GenericMethodsInGenericClassTwoParams<Rocket, Automobile> rocketAutomobileGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
         GenericMethodsInGenericClassTwoParams<Moped, Motorbike> mopedMotorbikeGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
         GenericMethodsInGenericClassTwoParams<Bottle, Can> bottleCanGenericMethodsInGenericClassTwoParams = new GenericMethodsInGenericClassTwoParams<>();
@@ -66,13 +66,13 @@ public class GenericMethodsInGenericClassTwoParamsRunner {
         integerIntegerGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(x, y);
         integerIntegerGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(x, y, string3);
 
-        Airplane airplane = new Airplane(5000, "Boeing-787");
+        Plane plane = new Plane(5000, "Boeing-787");
         Copter copter = new Copter(1500, "Military copter");
-        System.out.println(airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(airplane));
-        System.out.println(airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(airplane, copter));
-        airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(airplane, string);
+        System.out.println(airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(plane));
+        System.out.println(airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(plane, copter));
+        airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(plane, string);
         airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(x, copter);
-        airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(airplane, copter, string3);
+        airplaneCopterGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(plane, copter, string3);
 
         Rocket rocket = new Rocket(15000, "Space-X");
         Automobile automobile = new Automobile(3000, "BMW");

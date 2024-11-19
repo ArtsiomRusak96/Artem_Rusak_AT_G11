@@ -5,11 +5,11 @@ import homework.day5.playground.essence.Matter;
 import homework.day5.playground.essence.craft.Transportable;
 
 
-public abstract class AirVehicle extends Matter implements Flyable, Transportable {
+public abstract class Aircraft extends Matter implements Flyable, Transportable {
 
     protected String name;
 
-    public AirVehicle(int mass, String name) {
+    public Aircraft(int mass, String name) {
         super(mass);
         this.name = name;
     }
