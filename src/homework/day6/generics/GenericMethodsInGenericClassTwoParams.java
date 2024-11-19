@@ -11,4 +11,12 @@ public class GenericMethodsInGenericClassTwoParams<X, Y> {
         int amountArgs = 2;
         return "I received " + amountArgs + " arguments of type: " + arg1.getClass().getSimpleName() + " class, " + arg2.getClass().getSimpleName() + " class";
     }
+
+    public void genericMethodHalfGenArgs(X arg1, String string) {
+        System.out.printf("I got an object of %s class and string with %d characters\n", arg1.getClass().getSimpleName(), string.length());
+    }
+
+    public void genericMethodHalfGenArgs(X arg1, Y arg2, String string) {
+        System.out.printf("I got an object of %s class and %s class and string with %d characters\n", arg1.getClass().getSimpleName(), arg2.getClass().getSimpleName(), string.length());
+    }
 }
