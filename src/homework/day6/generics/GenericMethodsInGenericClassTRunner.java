@@ -1,7 +1,7 @@
 package homework.day6.generics;
 
 
-import homework.day5.playground.essence.craft.air.Airplane;
+import homework.day5.playground.essence.craft.air.Plane;
 import homework.day5.playground.essence.craft.air.Copter;
 import homework.day5.playground.essence.craft.air.Rocket;
 import homework.day5.playground.essence.craft.field.Automobile;
@@ -22,7 +22,7 @@ public class GenericMethodsInGenericClassTRunner {
         GenericMethodsInGenericClassT<String> stringGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Integer> integerGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Double> doubleGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
-        GenericMethodsInGenericClassT<Airplane> airplaneGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
+        GenericMethodsInGenericClassT<Plane> airplaneGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Copter> copterGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Rocket> rocketGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
         GenericMethodsInGenericClassT<Automobile> automobileGenericMethodsInGenericClassT = new GenericMethodsInGenericClassT<>();
@@ -65,11 +65,11 @@ public class GenericMethodsInGenericClassTRunner {
         System.out.println(doubleGenericMethodsInGenericClassT.genericMethodTwoGenArgs(z, w));
         doubleGenericMethodsInGenericClassT.genericMethodHalfGenArgs(z, string2);
 
-        Airplane airplane = new Airplane(5000, "Boeing-787");
-        Airplane airplane2 = new Airplane(4000, "Boeing-777");
-        airplaneGenericMethodsInGenericClassT.genericMethodOneGenArg(airplane);
-        System.out.println(airplaneGenericMethodsInGenericClassT.genericMethodTwoGenArgs(airplane, airplane2));
-        airplaneGenericMethodsInGenericClassT.genericMethodHalfGenArgs(airplane, string2);
+        Plane plane = new Plane(5000, "Boeing-787");
+        Plane plane2 = new Plane(4000, "Boeing-777");
+        airplaneGenericMethodsInGenericClassT.genericMethodOneGenArg(plane);
+        System.out.println(airplaneGenericMethodsInGenericClassT.genericMethodTwoGenArgs(plane, plane2));
+        airplaneGenericMethodsInGenericClassT.genericMethodHalfGenArgs(plane, string2);
 
         Copter copter = new Copter(1500, "Military copter");
         Copter copter2 = new Copter(1500, "Civil copter");
