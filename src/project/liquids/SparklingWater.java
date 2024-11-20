@@ -8,7 +8,7 @@ public class SparklingWater extends Water {
     private Bubble[] bubbles;
 
     public SparklingWater(double volume, boolean isOpened) {
-        super("color", "transparent", "smell", 20);
+        super("color", "transparent", "smell", 1);
         int bubblesCountForLiter = 10000;
         int neededBubbles = (int) (bubblesCountForLiter * volume);
         Bubble bubble = new Bubble("Gas");
@@ -41,10 +41,10 @@ public class SparklingWater extends Water {
     public void degas() throws InterruptedException {
         int bubblesCountForRemove = 10 + 5 * getTemperature();
         int countRemoves = bubbles.length / bubblesCountForRemove;
-        System.out.println(bubblesCountForRemove);
+//        System.out.println(bubblesCountForRemove);
 
         int removeAction = 0;
-        for (int i = 1; i < countRemoves; i++) {
+        for (int i = 1; i < countRemoves + 1; i++) {
             int x = bubblesCountForRemove + removeAction;
             for (int j = removeAction; j < x; j++) {
                 if (bubbles[j] != null) {
@@ -53,10 +53,10 @@ public class SparklingWater extends Water {
                     removeAction++;
                 }
             }
-//            System.out.println(removeAction);
+            System.out.println(removeAction);
             Thread.sleep(1000);
         }
-        for (int i = 0; i < bubbles.length; i++) {
+        for (int i = removeAction; i < bubbles.length; i++) {
             if (bubbles[i] != null) {
 //                System.out.println(i);
                 bubbles[i].cramp();
