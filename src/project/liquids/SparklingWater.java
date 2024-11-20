@@ -13,7 +13,7 @@ public class SparklingWater extends Water {
         int neededBubbles = (int) (bubblesCountForLiter * volume);
         Bubble bubble = new Bubble("Gas");
         Bubble[] bubbles = new Bubble[neededBubbles];
-        for (int i = 0; i < neededBubbles; i++) {
+        for (int i = 0; i < bubbles.length; i++) {
             bubbles[i] = bubble;
         }
 //        Suggestion from IDEA:

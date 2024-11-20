@@ -1,11 +1,15 @@
 package project.liquids;
 
+import project.bubbles.Bubble;
+
 public abstract class Water {
 
     private String color = "no";
     private String transparency = "transparent";
     private String smell = "no";
     private int temperature = 0;
+    private boolean isOpened;
+
 
     public Water(String color, String transparency, String smell, int temperature) {
         this.color = color;
@@ -44,6 +48,13 @@ public abstract class Water {
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
+    }
+
+    public void setOpened(boolean isOpened) throws InterruptedException {
+        this.isOpened = true;
+    }
+
+    public void setBubbles(Bubble[] bubbles) {
     }
 }
 
