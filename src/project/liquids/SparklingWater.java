@@ -29,16 +29,15 @@ public class SparklingWater extends Water {
         }
     }
 
-    public void setOpened(boolean isOpened) throws InterruptedException {
+    public void setOpened() throws InterruptedException {
         this.isOpened = true;
         degas();
     }
 
     private void isOpened() {
-
     }
 
-    public void degas() throws InterruptedException {
+    private void degas() throws InterruptedException {
         int bubblesCountForRemove = 10 + 5 * getTemperature();
         int countRemoves = bubbles.length / bubblesCountForRemove;
 //        System.out.println(bubblesCountForRemove);

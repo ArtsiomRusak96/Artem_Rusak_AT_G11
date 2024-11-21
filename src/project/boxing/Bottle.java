@@ -14,11 +14,13 @@ public class Bottle {
     }
 
     public void open() throws InterruptedException {
-        this.water.setOpened(true);
+        if (water instanceof SparklingWater) {
+            ((SparklingWater) water).setOpened();
+        }
     }
 
     public void warm(int temperature) {
-        this.water.setTemperature(temperature);
+        water.setTemperature(temperature);
     }
 
     public double getVolume() {
@@ -38,13 +40,15 @@ public class Bottle {
     }
 
     public void setBubbles() {
-        int bubblesCountForLiter = 10000;
-        int neededBubbles = (int) (bubblesCountForLiter * volume);
-        Bubble bubble = new Bubble("Gas 1");
-        Bubble[] bubbles = new Bubble[neededBubbles];
-        for (int i = 0; i < bubbles.length; i++) {
-            bubbles[i] = bubble;
+        if (water instanceof SparklingWater) {
+            int bubblesCountForLiter = 10000;
+            int neededBubbles = (int) (bubblesCountForLiter * volume);
+            Bubble bubble = new Bubble("Gas 1");
+            Bubble[] bubbles = new Bubble[neededBubbles];
+            for (int i = 0; i < bubbles.length; i++) {
+                bubbles[i] = bubble;
+            }
+            ((SparklingWater) water).pump(bubbles);
         }
-        this.water.setBubbles(bubbles);
     }
 }
