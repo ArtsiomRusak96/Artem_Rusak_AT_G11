@@ -3,26 +3,29 @@ package project.bubbles;
 public class Bubble {
 
     private final double volume = 0.3;
-    private String gasComposition;
+    private String gas;
 
 
-    public Bubble(String gasComposition) {
-        this.gasComposition = gasComposition;
+    public Bubble(String gas) {
+        this.gas = gas;
     }
 
-    public String getGasComposition() {
-        return gasComposition;
+    public String getGas() {
+        System.out.printf("Getting the gas of bubble: %s\n", gas);
+        return gas;
     }
 
     public double getVolume() {
+        System.out.printf("Getting the volume of bubble: %f\n", volume);
         return volume;
     }
 
-    public void setGasComposition(String gasComposition) {
-        this.gasComposition = gasComposition;
+    public void setGas(String gas) {
+        System.out.printf("Setting gas for bubble: %s\n", gas);
+        this.gas = gas;
     }
 
-    public void pop() {
+    public void cramp() {
         System.out.println("Cramp!");
     }
 }

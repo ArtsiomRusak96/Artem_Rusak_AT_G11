@@ -4,34 +4,64 @@ import project.bubbles.Bubble;
 
 public class SparklingWater extends Water {
 
+    private boolean isOpened;
     private Bubble[] bubbles;
-    private int bubblesCountForLiter = 10000;
 
-    public SparklingWater(double volume) {
-        super("color", 0.4, "smell", 22.2);
+    public SparklingWater(double volume, boolean isOpened) {
+        super("color", "transparent", "smell", 1);
+        int bubblesCountForLiter = 10000;
         int neededBubbles = (int) (bubblesCountForLiter * volume);
         Bubble bubble = new Bubble("Gas");
         Bubble[] bubbles = new Bubble[neededBubbles];
-        for (int i = 0; i < neededBubbles; i++) {
+        for (int i = 0; i < bubbles.length; i++) {
             bubbles[i] = bubble;
         }
 //        Suggestion from IDEA:
 //        Arrays.fill(bubbles, bubble);
         pump(bubbles);
+        isOpened();
     }
 
     public void pump(Bubble[] bubbles) {
+        System.out.printf("Pumping water with %d bubbles\n", bubbles.length);
         this.bubbles = bubbles;
         for (int i = 0; i < bubbles.length; i++) {
             bubbles[i] = new Bubble("Gas");
         }
     }
 
-    public void degas() {
-        for (int i = 0; i < bubbles.length; i++) {
+    public void setOpened() throws InterruptedException {
+        System.out.println("Opening water");
+        this.isOpened = true;
+        degas();
+    }
+
+    private void isOpened() {
+    }
+
+    private void degas() throws InterruptedException {
+        System.out.println("Degassing water");
+        int bubblesCountForRemove = 10 + 5 * getTemperature();
+        int countRemoves = bubbles.length / bubblesCountForRemove;
+//        System.out.println(bubblesCountForRemove);
+
+        int removeAction = 0;
+        for (int i = 1; i < countRemoves + 1; i++) {
+            int x = bubblesCountForRemove + removeAction;
+            for (int j = removeAction; j < x; j++) {
+                if (bubbles[j] != null) {
+                    bubbles[j].cramp();
+                    bubbles[j] = null;
+                    removeAction++;
+                }
+            }
+            System.out.println(removeAction);
+            Thread.sleep(1000);
+        }
+        for (int i = removeAction; i < bubbles.length; i++) {
             if (bubbles[i] != null) {
 //                System.out.println(i);
-                bubbles[i].pop();
+                bubbles[i].cramp();
                 bubbles[i] = null;
             }
         }
