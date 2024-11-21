@@ -23,6 +23,7 @@ public class SparklingWater extends Water {
     }
 
     public void pump(Bubble[] bubbles) {
+        System.out.printf("Pumping water with %d bubbles\n", bubbles.length);
         this.bubbles = bubbles;
         for (int i = 0; i < bubbles.length; i++) {
             bubbles[i] = new Bubble("Gas");
@@ -30,6 +31,7 @@ public class SparklingWater extends Water {
     }
 
     public void setOpened() throws InterruptedException {
+        System.out.println("Opening water");
         this.isOpened = true;
         degas();
     }
@@ -38,6 +40,7 @@ public class SparklingWater extends Water {
     }
 
     private void degas() throws InterruptedException {
+        System.out.println("Degassing water");
         int bubblesCountForRemove = 10 + 5 * getTemperature();
         int countRemoves = bubbles.length / bubblesCountForRemove;
 //        System.out.println(bubblesCountForRemove);

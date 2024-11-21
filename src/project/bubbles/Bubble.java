@@ -11,15 +11,18 @@ public class Bubble {
     }
 
     public String getGas() {
+        System.out.printf("Getting the gas of bubble: %s\n", gas);
         return gas;
     }
 
     public double getVolume() {
+        System.out.printf("Getting the volume of bubble: %f\n", volume);
         return volume;
     }
 
-    public void setGas(String gasComposition) {
-        this.gas = gasComposition;
+    public void setGas(String gas) {
+        System.out.printf("Setting gas for bubble: %s\n", gas);
+        this.gas = gas;
     }
 
     public void cramp() {
