@@ -11,14 +11,13 @@ public class PrintDuplicates {
     }
 
     public void printDuplicatedWords(String string) {
+        int amount;
         string = string.toUpperCase();
-        string = string.replaceAll(", ", " ");
-        string = string.replaceAll(": ", " ");
-        String[] allWordsInString = string.split(" ");
+        String[] allWordsInString = string.split("\\W+");
         for (int i = 0; i < allWordsInString.length; i++) {
-            int amount = 1;
+            amount = 1;
             for (int j = i + 1; j < allWordsInString.length; j++) {
-                if(allWordsInString[i].equals(allWordsInString[j])) {
+                if (allWordsInString[i].equals(allWordsInString[j])) {
                     amount++;
                     allWordsInString[j] = "0";
                 }
