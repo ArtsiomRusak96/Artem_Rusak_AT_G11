@@ -20,7 +20,7 @@ public class CitiesTask {
         for (String city : cities) {
             countLetters += city.length();
         }
-        System.out.println(countLetters);
+        System.out.println("The total amount of all letters in this list = " + countLetters);
 
         for (int i = 0; i < cities.size(); i++) {
             System.out.print(cities.get(i) + " ");
