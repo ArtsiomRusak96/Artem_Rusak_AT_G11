@@ -10,7 +10,7 @@ public class FiguresTask {
 
     public static void main(String[] args) {
 
-        List<String> figures = new ArrayList<>(Arrays.asList("Овал", "Прямоугольник", "Круг", "Квадрат", "Эллипс"));
+        List<String> figures = Arrays.asList("Овал", "Прямоугольник", "Круг", "Квадрат", "Эллипс");
 
         try (FileWriter fileWriter = new FileWriter("figures.txt")) {
             for (String figure : figures) {
@@ -36,7 +36,12 @@ public class FiguresTask {
         }
 
         System.out.println();
-        figures.add(2, "Треугольник");
+
+        try {
+            figures.add(2, "Треугольник");
+        } catch (UnsupportedOperationException e) {
+            System.out.println(e.getClass().getSimpleName() + ": " + e.getMessage() + " - Array.asList returns fixed size list, thus it doesn't allow to add/remove elements");
+        }
 
         for (String figure : figures) {
             System.out.print(figure + " ");
