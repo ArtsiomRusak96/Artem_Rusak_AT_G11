@@ -24,7 +24,7 @@ public class DoublesTask {
             double decimalNumber = doubleNumber - Math.floor(doubleNumber);
             sum += decimalNumber;
         }
-        System.out.println(sum);
+        System.out.println("The sum of all decimal parts = " + sum);
 
         for (int i = 0; i < doubles.size(); i++) {
             int intNumber = (int) Math.floor(doubles.get(i));
