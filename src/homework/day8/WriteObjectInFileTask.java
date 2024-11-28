@@ -15,7 +15,7 @@ public class WriteObjectInFileTask {
     public void writeObjectInFile() {
         try (FileOutputStream fos = new FileOutputStream("beetle.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(new Beetle(14, "May Beetle"));
+            oos.writeObject(new Beetle(18, "Potato Beetle"));
         } catch (IOException e) {
             System.out.println(e.getClass() + ": " + e.getMessage());
         }
