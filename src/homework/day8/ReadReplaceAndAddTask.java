@@ -23,7 +23,8 @@ public class ReadReplaceAndAddTask {
             System.out.println(e.getClass() + ": " + e.getMessage());
         }
         try (BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true))) {
-            out.write("\n" + "\n" + textFromFile.replaceAll("[bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ]", ""));
+            out.newLine();
+            out.write(textFromFile.replaceAll("[bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ]", ""));
         } catch (IOException e) {
             System.out.println(e.getClass() + ": " + e.getMessage());
         }
