@@ -1,8 +1,8 @@
 package homework.day5.playground.essence.creatures;
 
-import homework.day3.basetask.objects.Bee;
+import java.io.Serializable;
 
-public class Beetle extends Insect implements Crawlable {
+public class Beetle extends Insect implements Crawlable, Serializable {
 
     public Beetle(int mass, String name) {
         super(mass, name);
