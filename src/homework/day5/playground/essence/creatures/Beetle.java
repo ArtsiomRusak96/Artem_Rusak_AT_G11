@@ -1,7 +1,5 @@
 package homework.day5.playground.essence.creatures;
 
-import homework.day3.basetask.objects.Bee;
-
 public class Beetle extends Insect implements Crawlable {
 
     public Beetle(int mass, String name) {
@@ -15,5 +13,12 @@ public class Beetle extends Insect implements Crawlable {
         } else {
             System.out.println("This carrot is too small for nesting =(");
         }
+    }
+
+    public String toString() {
+        return "Beetle{" +
+                "name='" + name + '\'' +
+                ", mass=" + mass +
+                '}';
     }
 }
