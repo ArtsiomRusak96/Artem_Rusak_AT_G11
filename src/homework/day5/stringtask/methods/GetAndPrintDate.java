@@ -1,20 +1,10 @@
-package homework.day5.stringtask;
+package homework.day5.stringtask.methods;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class GetAndPrintDate {
-
-    public static void main(String[] args) {
-
-        LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H.mm d.LL.yyyy");
-        String currentDateAndTime = localDateTime.format(formatter);
-
-        GetAndPrintDate getAndPrintDate = new GetAndPrintDate();
-        getAndPrintDate.changeDateAndTimeFormat(currentDateAndTime);
-    }
 
     public void changeDateAndTimeFormat(String currentDateAndTime) {
         DateTimeFormatter formatterIn = DateTimeFormatter.ofPattern("H.mm d.LL.yyyy");

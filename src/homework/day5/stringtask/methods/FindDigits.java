@@ -1,14 +1,6 @@
-package homework.day5.stringtask;
+package homework.day5.stringtask.methods;
 
 public class FindDigits {
-
-    public static void main(String[] args) {
-
-        String string = "Hi I am9 611 trying to learn J7ava, HI me too JAVA:4is difficult, b1u2t we are trying 5 to learn0 J123aVa!";
-
-        FindDigits findDigits = new FindDigits();
-        findDigits.findDigits(string);
-    }
 
     public void findDigits(String string) {
         String digits = string.replaceAll("[^0-9]", "");

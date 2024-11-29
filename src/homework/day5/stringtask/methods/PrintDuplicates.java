@@ -1,14 +1,6 @@
-package homework.day5.stringtask;
+package homework.day5.stringtask.methods;
 
 public class PrintDuplicates {
-
-    public static void main(String[] args) {
-
-        PrintDuplicates printDuplicates = new PrintDuplicates();
-        String string = "Hi I am trying to learn Java, HI me too JAVA: is difficult, but we are trying to learn JaVa!";
-
-        printDuplicates.printDuplicatedWords(string);
-    }
 
     public void printDuplicatedWords(String string) {
         int amount;

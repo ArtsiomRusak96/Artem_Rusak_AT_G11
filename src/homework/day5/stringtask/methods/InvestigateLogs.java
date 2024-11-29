@@ -1,19 +1,6 @@
-package homework.day5.stringtask;
+package homework.day5.stringtask.methods;
 
 public class InvestigateLogs {
-
-    public static void main(String[] args) {
-
-        String logs = """
-                access_log.2020.09.07 212.168.101.5 granted
-                access_log.2020.09.07 212.168.101.6 denied
-                access_log.2020.09.07 212.168.101.6 denied
-                access_log.2020.09.07 212.168.122.6 denied
-                """;
-
-        InvestigateLogs investigateLogs = new InvestigateLogs();
-        investigateLogs.investigateLogs(logs);
-    }
 
     public void investigateLogs(String logs) {
 

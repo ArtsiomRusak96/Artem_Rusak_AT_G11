@@ -1,17 +1,9 @@
-package homework.day5.stringtask;
+package homework.day5.stringtask.methods;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class CountOutputDate {
-
-    public static void main(String[] args) {
-
-        String text = "Hello, I'm learning JAVA!";
-
-        CountOutputDate countOutputDate = new CountOutputDate();
-        countOutputDate.countAndPrintDate(text);
-    }
 
     public void countAndPrintDate(String text) {
         int countVowels = text.replaceAll("[^aeiouyAEIOUY]", "").length();
