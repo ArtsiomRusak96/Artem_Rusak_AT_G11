@@ -147,15 +147,15 @@ public class GenericMethodsInGenericClassTwoParamsRunner {
         radishRavenGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(radish, raven, string3);
 
         Rose rose = new Rose(11, "White rose");
-        Diesel diesel = new Diesel();
+        Diesel diesel = new Diesel(33);
         System.out.println(roseDieselGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(rose));
         System.out.println(roseDieselGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(rose, diesel));
         roseDieselGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(rose, string);
         roseDieselGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(x, diesel);
         roseDieselGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(rose, diesel, string3);
 
-        Petrol petrol = new Petrol();
-        Water water = new Water();
+        Petrol petrol = new Petrol(42);
+        Water water = new Water(155);
         System.out.println(petrolWaterGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(petrol));
         System.out.println(petrolWaterGenericMethodsInGenericClassTwoParams.genericMethodGenArgs(petrol, water));
         petrolWaterGenericMethodsInGenericClassTwoParams.genericMethodHalfGenArgs(petrol, string);

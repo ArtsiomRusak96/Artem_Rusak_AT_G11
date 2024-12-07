@@ -191,20 +191,20 @@ public class GenericMethodsInGenericClassTRunner {
         System.out.println(roseGenericMethodsInGenericClassT.genericMethodTwoGenArgs(rose, rose2));
         roseGenericMethodsInGenericClassT.genericMethodHalfGenArgs(rose, string2);
 
-        Diesel diesel = new Diesel();
-        Diesel diesel2 = new Diesel();
+        Diesel diesel = new Diesel(40);
+        Diesel diesel2 = new Diesel(50);
         dieselGenericMethodsInGenericClassT.genericMethodOneGenArg(diesel);
         System.out.println(dieselGenericMethodsInGenericClassT.genericMethodTwoGenArgs(diesel, diesel2));
         dieselGenericMethodsInGenericClassT.genericMethodHalfGenArgs(diesel, string2);
 
-        Petrol petrol = new Petrol();
-        Petrol petrol2 = new Petrol();
+        Petrol petrol = new Petrol(55);
+        Petrol petrol2 = new Petrol(46);
         petrolGenericMethodsInGenericClassT.genericMethodOneGenArg(petrol);
         System.out.println(petrolGenericMethodsInGenericClassT.genericMethodTwoGenArgs(petrol, petrol2));
         petrolGenericMethodsInGenericClassT.genericMethodHalfGenArgs(petrol, string2);
 
-        Water water = new Water();
-        Water water2 = new Water();
+        Water water = new Water(125);
+        Water water2 = new Water(320);
         waterGenericMethodsInGenericClassT.genericMethodOneGenArg(water);
         System.out.println(waterGenericMethodsInGenericClassT.genericMethodTwoGenArgs(water, water2));
         waterGenericMethodsInGenericClassT.genericMethodHalfGenArgs(water, string2);
