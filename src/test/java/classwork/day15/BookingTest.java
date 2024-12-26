@@ -1,5 +1,8 @@
 package classwork.day15;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,35 +11,64 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.LocalDate;
+
+import static org.junit.Assert.assertEquals;
 
 public class BookingTest {
 
-    public static void main(String[] args) {
+    WebDriver webDriver;
 
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.booking.com/");
+    @Before
+    public void launchWebDriver() {
+        webDriver = new ChromeDriver();
+        webDriver.manage().window().maximize();
+    }
 
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@aria-label='Скрыть меню входа в аккаунт.']")));
-        driver.findElement(By.xpath("//*[@aria-label='Скрыть меню входа в аккаунт.']")).click();
-        driver.findElement(By.xpath("//*[@name='ss']")).sendKeys("Paris");
-        driver.findElement(By.xpath("//*[@data-testid='searchbox-dates-container']")).click();
-        driver.findElement(By.xpath("//*[@data-date='2024-12-24']")).click();
-        driver.findElement(By.xpath("//*[@data-date='2024-12-31']")).click();
-        driver.findElement(By.xpath("//*[@data-testid='occupancy-config']")).click();
+    @After
+    public void closeWebDriver() {
+        webDriver.quit();
+    }
 
-        WebElement plusPerson = driver.findElement(By.xpath("//*[@tabindex='-1'][2]"));
-        plusPerson.click();
-        plusPerson.click();
+    @Test
+    public void bookHotelInPAris() {
+        LocalDate startDate = LocalDate.now().plusDays(3);
+        LocalDate endDate = startDate.plusDays(7);
 
-        driver.findElement(By.xpath("//*[@id='no_rooms']/following-sibling::div[2]/button[2]")).click();
-        driver.findElement(By.xpath("//*[@type='submit']")).click();
+        webDriver.get("https://www.booking.com/");
+        waitElement("//*[@aria-label='Скрыть меню входа в аккаунт.']").click();
 
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@aria-label='5 звезд: 48 вариантов жилья']")));
-        driver.findElement(By.xpath("//*[@aria-label='5 звезд: 48 вариантов жилья']")).click();
+        webDriver.findElement(By.xpath("//*[@name='ss']")).sendKeys("Paris");
+        clickElement("//*[@data-testid='searchbox-dates-container']");
+        clickElement("//*[@data-date='" + startDate + "']");
+        clickElement("//*[@data-date='" + endDate + "']");
 
+        String addPerson = "//*[@id='group_adults']/following-sibling::div[2]/button[2]";
+        clickElement("//*[@data-testid='occupancy-config']");
+        clickElement(addPerson);
+        clickElement(addPerson);
 
+        clickElement("//*[@id='no_rooms']/following-sibling::div[2]/button[2]");
+        clickElement("//*[@type='submit']");
 
+        waitElement("(//input[contains(@aria-label,'5 звезд')]/following-sibling::label/span[2])[1]")
+                .click();
+
+        clickElement("//button[@data-testid='sorters-dropdown-trigger']");
+        clickElement("//button[@aria-label='Оценка объекта (по возрастанию)']");
+
+        waitElement("(//div[@data-testid='rating-stars'])[1]");
+        int stars = webDriver.findElements(By.xpath("(//div[@data-testid='rating-stars'])[1]/span")).size();
+
+        assertEquals("The hotel rate should be:", 5, stars);
+    }
+
+    private void clickElement(String xpath) {
+        webDriver.findElement(By.xpath(xpath)).click();
+    }
+
+    private WebElement waitElement(String xpath) {
+        return new WebDriverWait(webDriver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
     }
 }
