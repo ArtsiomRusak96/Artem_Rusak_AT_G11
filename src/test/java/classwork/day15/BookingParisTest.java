@@ -15,7 +15,7 @@ import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 
-public class BookingTest {
+public class BookingParisTest {
 
     WebDriver webDriver;
 
@@ -37,7 +37,7 @@ public class BookingTest {
         LocalDate endDate = startDate.plusDays(7);
 
         webDriver.get("https://www.booking.com/");
-        waitElement("//*[@aria-label='Скрыть меню входа в аккаунт.']").click();
+        closePopup();
 
         webDriver.findElement(By.xpath("//*[@name='ss']")).sendKeys("Paris");
         clickElement("//*[@data-testid='searchbox-dates-container']");
@@ -52,6 +52,7 @@ public class BookingTest {
         clickElement("//*[@id='no_rooms']/following-sibling::div[2]/button[2]");
         clickElement("//*[@type='submit']");
 
+        closePopup();
         waitElement("(//input[contains(@aria-label,'5 звезд')]/following-sibling::label/span[2])[1]")
                 .click();
 
@@ -69,7 +70,14 @@ public class BookingTest {
     }
 
     private WebElement waitElement(String xpath) {
-        return new WebDriverWait(webDriver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+        return new WebDriverWait(webDriver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
+
+    private void closePopup() {
+        try {
+            waitElement("//*[@aria-label='Скрыть меню входа в аккаунт.']").click();
+        } catch (Exception ignored) {
+        }
     }
 }
