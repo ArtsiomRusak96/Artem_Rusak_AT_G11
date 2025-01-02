@@ -31,7 +31,8 @@ public class BookingTest {
     }
 
     @Test
-    public void bookHotelInPAris() {
+    public void bookingParisTest() {
+
         LocalDate startDate = LocalDate.now().plusDays(3);
         LocalDate endDate = startDate.plusDays(7);
 
