@@ -65,12 +65,12 @@ public class BookingLondonTest {
         assertTrue("Screenshot should be taken", Files.exists(screenshotPath));
     }
 
-    private void clickElement(String xpath) {
-        webDriver.findElement(By.xpath(xpath)).click();
-    }
-
     private WebElement findElement(String xpath) {
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private void clickElement(String xpath) {
+        findElement(xpath).click();
     }
 
     private void closePopup() {
