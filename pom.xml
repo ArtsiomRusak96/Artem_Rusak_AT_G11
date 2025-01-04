@@ -21,8 +21,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
                 <configuration>
+                    <includes>
+                        <include>runners.homework.RunnerTests</include>
+                    </includes>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/people/testng/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
