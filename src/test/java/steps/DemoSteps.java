@@ -1,6 +1,6 @@
-package steps.classwork;
+package steps;
 
-import pages.classwork.DemoPage;
+import pages.DemoPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

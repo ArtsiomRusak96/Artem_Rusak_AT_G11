@@ -1,9 +1,8 @@
-package runners.homework;
+package runners;
 
-import tests.classwork.BookingParisTest;
+import tests.homework.selenium.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import tests.homework.*;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -12,7 +11,7 @@ import tests.homework.*;
         BookingLondonTest.class,
         SelectDropdownValuesTest.class,
         BookingHoverTest.class,
-        BookingPrahaTest.class
+        BookingPragueTest.class
 })
 public class RunnerTests {
 }

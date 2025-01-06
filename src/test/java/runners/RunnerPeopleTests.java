@@ -1,7 +1,10 @@
-package tests.homework.people.junit;
+package runners;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import tests.homework.people.junit.AutomatedEngineerJUnitTests;
+import tests.homework.people.junit.ManualEngineerJUnitTests;
+import tests.homework.people.junit.ParameterizedTests;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -10,6 +13,6 @@ import org.junit.runners.Suite;
         ParameterizedTests.class
 })
 
-public class RunnerJUnit {
+public class RunnerPeopleTests {
 
 }
