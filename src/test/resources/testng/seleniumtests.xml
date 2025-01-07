@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Test Suite" verbose="3">
+    <test name="Selenium Tests">
+        <classes>
+            <class name="tests.homework.selenium.testng.BookingHoverTestNgTest"/>
+            <class name="tests.homework.selenium.testng.BookingLondonTestNgTest"/>
+            <class name="tests.homework.selenium.testng.BookingParisTestNgTest"/>
+            <class name="tests.homework.selenium.testng.BookingPragueTestNgTest"/>
+            <class name="tests.homework.selenium.testng.SearchTestNgTest"/>
+            <class name="tests.homework.selenium.testng.SelectDropdownValuesTestNgTest"/>
+        </classes>
+    </test>
+</suite>

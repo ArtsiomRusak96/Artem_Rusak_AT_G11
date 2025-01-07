@@ -39,6 +39,7 @@
                     </includes>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng/seleniumtests.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
