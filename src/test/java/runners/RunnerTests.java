@@ -1,17 +1,17 @@
 package runners;
 
-import tests.homework.selenium.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import tests.homework.selenium.junit.*;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        BookingParisTest.class,
-        SearchTest.class,
-        BookingLondonTest.class,
-        SelectDropdownValuesTest.class,
-        BookingHoverTest.class,
-        BookingPragueTest.class
+        BookingParisJUnitTest.class,
+        SearchJUnitTest.class,
+        BookingLondonJUnitTest.class,
+        SelectDropdownValuesJUnitTest.class,
+        BookingHoverJUnitTest.class,
+        BookingPragueJUnitTest.class
 })
 public class RunnerTests {
 }

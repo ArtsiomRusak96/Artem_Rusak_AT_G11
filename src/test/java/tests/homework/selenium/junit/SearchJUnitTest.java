@@ -1,4 +1,4 @@
-package tests.homework.selenium;
+package tests.homework.selenium.junit;
 
 import driver.Driver;
 import org.junit.After;
@@ -10,7 +10,7 @@ import pages.W3SchoolsPage;
 
 import static org.junit.Assert.assertTrue;
 
-public class SearchTest {
+public class SearchJUnitTest {
 
     WebDriver webDriver;
     W3SchoolsPage w3SchoolsPage;

@@ -1,4 +1,4 @@
-package tests.homework.selenium;
+package tests.homework.selenium.junit;
 
 import driver.Driver;
 import org.junit.After;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 import static org.junit.Assert.assertTrue;
 
-public class BookingLondonTest {
+public class BookingLondonJUnitTest {
 
     WebDriver webDriver;
     BookingPage bookingPage;

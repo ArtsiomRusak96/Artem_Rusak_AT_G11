@@ -1,4 +1,4 @@
-package tests.homework.selenium;
+package tests.homework.selenium.junit;
 
 import driver.Driver;
 import org.junit.After;
@@ -9,7 +9,7 @@ import pages.BookingPage;
 
 import static org.junit.Assert.assertEquals;
 
-public class BookingHoverTest {
+public class BookingHoverJUnitTest {
 
     WebDriver webDriver;
     BookingPage bookingPage;

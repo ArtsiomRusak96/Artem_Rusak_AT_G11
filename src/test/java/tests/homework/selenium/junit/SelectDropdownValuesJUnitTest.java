@@ -1,4 +1,4 @@
-package tests.homework.selenium;
+package tests.homework.selenium.junit;
 
 import driver.Driver;
 import org.junit.After;
@@ -9,7 +9,7 @@ import pages.DemoQaPage;
 
 import static org.junit.Assert.assertEquals;
 
-public class SelectDropdownValuesTest {
+public class SelectDropdownValuesJUnitTest {
 
     WebDriver webDriver;
     DemoQaPage demoQaPage;
