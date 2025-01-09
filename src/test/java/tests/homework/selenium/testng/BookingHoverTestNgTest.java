@@ -36,6 +36,6 @@ public class BookingHoverTestNgTest {
         assertEquals(bookingPage.getTextOfElement(tooltip + " 525px')]"), "Выберите валюту", "The currency tooltip should be:");
 
         bookingPage.hoverOnLanguage();
-        assertEquals(bookingPage.getTextOfElement(tooltip + " 592px')]"), "Выберите язык", "The currency tooltip should be:");
+        assertEquals(bookingPage.getTextOfElement(tooltip + " 592px')]"), "Выберите язык", "The language tooltip should be:");
     }
 }

@@ -36,6 +36,7 @@
                     <includes>
                         <include>RunnerTests.java</include>
                         <include>RunnerPeopleTests.java</include>
+                        <include>RunnerCucumberTests.java</include>
                     </includes>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng/testng.xml</suiteXmlFile>
