@@ -36,6 +36,6 @@ public class BookingHoverJUnitTest {
         assertEquals("The currency tooltip should be:", "Выберите валюту", bookingPage.getTextOfElement(tooltip + " 525px')]"));
 
         bookingPage.hoverOnLanguage();
-        assertEquals("The currency tooltip should be:", "Выберите язык", bookingPage.getTextOfElement(tooltip + " 592px')]"));
+        assertEquals("The language tooltip should be:", "Выберите язык", bookingPage.getTextOfElement(tooltip + " 592px')]"));
     }
 }
