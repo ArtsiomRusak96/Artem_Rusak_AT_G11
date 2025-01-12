@@ -46,11 +46,7 @@ public class BookingPragueJUnitTest {
         bookingPage.filterByRateNinePlus();
         bookingPage.openFirstHotel();
 
-        String score = bookingPage.getTextOfElement("(//div[contains(text(),'Оценка')])[3]")
-                .replaceAll("[^0-9,]", "")
-                .replaceAll(",", ".");
-        double rate = Double.parseDouble(score);
-
+        double rate = bookingPage.checkHotelRate();
         assertTrue("Apartment rate should be equal or more than 9.0. Rate equals to: " + rate, rate >= 9);
     }
 }

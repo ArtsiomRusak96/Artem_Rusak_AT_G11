@@ -31,11 +31,10 @@ public class BookingHoverTestNgTest {
         bookingPage.openBooking();
         bookingPage.closePopup();
 
-        String tooltip = "//div[contains(@style,'left:";
         bookingPage.hoverOnCurrency();
-        assertEquals(bookingPage.getTextOfElement(tooltip + " 525px')]"), "Выберите валюту", "The currency tooltip should be:");
+        assertEquals(bookingPage.getCurrencyTooltipText(), "Выберите валюту", "The currency tooltip should be:");
 
         bookingPage.hoverOnLanguage();
-        assertEquals(bookingPage.getTextOfElement(tooltip + " 592px')]"), "Выберите язык", "The language tooltip should be:");
+        assertEquals(bookingPage.getLanguageTooltipText(), "Выберите язык", "The language tooltip should be:");
     }
 }

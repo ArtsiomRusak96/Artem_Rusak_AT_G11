@@ -24,12 +24,17 @@ public class BookingPage {
     private static final String CLOSE_GENIUS_POPUP = "//*[@aria-label='Скрыть меню входа в аккаунт.']";
     private static final String SEARCH_DESTINATION = "//*[@name='ss']";
     private static final String DATES_BOX = "//*[@data-testid='searchbox-dates-container']";
+    private static final String DATES = "//*[@data-date='";
     private static final String PERSONS_BOX = "//*[@data-testid='occupancy-config']";
     private static final String ADD_PERSON_PLUS = "//*[@id='group_adults']/following-sibling::div[2]/button[2]";
     private static final String ADD_ROOM_PLUS = "//*[@id='no_rooms']/following-sibling::div[2]/button[2]";
     private static final String SEARCH_BUTTON = "//*[@type='submit']";
     private static final String CURRENCY = "//button[@data-testid='header-currency-picker-trigger']";
+    private static final String CURRENCY_TOOLTIP = "//div[contains(@style,'left: 525px')]";
     private static final String LANGUAGE = "//button[@data-testid='header-language-picker-trigger']";
+    private static final String LANGUAGE_TOOLTIP = "//div[contains(@style,'left: 592px')]";
+    private static final String FIRST_HOTEL_STARS = "(//div[@data-testid='rating-stars'])[1]/span";
+    private static final String HOTEL_RATE = "(//div[contains(text(),'Оценка')])[3]";
     private static final String FIVE_STARS_FILTER = "(//input[contains(@aria-label,'5 звезд')]/following-sibling::label/span[2])[1]";
     private static final String NINE_PLUS_RATE_FILTER = "(//input[@name='review_score=90']/following-sibling::label/span[2])[1]";
     private static final String SORTING_DROPDOWN = "//button[@data-testid='sorters-dropdown-trigger']";
@@ -55,8 +60,8 @@ public class BookingPage {
 
     public void setDates(LocalDate startDate, LocalDate endDate) {
         findElement(DATES_BOX).click();
-        findElement("//*[@data-date='" + startDate + "']").click();
-        findElement("//*[@data-date='" + endDate + "']").click();
+        findElement(DATES + startDate + "']").click();
+        findElement(DATES + endDate + "']").click();
     }
 
     public void addPersons(int quantity) {
@@ -104,6 +109,25 @@ public class BookingPage {
 
     public void hoverOnLanguage() {
         hoverOnElement(LANGUAGE);
+    }
+
+    public String getCurrencyTooltipText() {
+        return getTextOfElement(CURRENCY_TOOLTIP);
+    }
+
+    public String getLanguageTooltipText() {
+        return getTextOfElement(LANGUAGE_TOOLTIP);
+    }
+
+    public int checkStarsQuantityFirstHotel() {
+        wait(FIRST_HOTEL_STARS);
+        return webDriver.findElements(By.xpath(FIRST_HOTEL_STARS)).size();
+    }
+
+    public double checkHotelRate() {
+        return Double.parseDouble(getTextOfElement(HOTEL_RATE)
+                .replaceAll("[^0-9,]", "")
+                .replaceAll(",", "."));
     }
 
     public void openFirstHotel() {

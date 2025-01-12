@@ -37,13 +37,13 @@ public class SelectDropdownValuesJUnitTest {
         demoQaPage.selectValueInCarsDropdown("saab");
         assertEquals("Dropdown should have values:", "Saab, Opel", demoQaPage.getCarsDropdownValues());
 
-        demoQaPage.selectValueInGroupsDropdown("//div[@id='withOptGroup']//div[contains(text(),'Group 2, option 1')]");
-        assertEquals("Dropdown should have value:", "Group 2, option 1", demoQaPage.getTextOfElement("(//div[contains(@class,'singleValue')])[1]"));
+        demoQaPage.selectValueInGroupsDropdown("Group 2, option 1");
+        assertEquals("Dropdown should have value:", "Group 2, option 1", demoQaPage.getGroupsDropdownValue());
 
-        demoQaPage.selectValueInTitlesDropdown("//div[@id='selectOne']//div[contains(text(),'Prof.')]");
-        assertEquals("Dropdown should have value:", "Prof.", demoQaPage.getTextOfElement("(//div[contains(@class,'singleValue')])[2]"));
+        demoQaPage.selectValueInTitlesDropdown("Prof.");
+        assertEquals("Dropdown should have value:", "Prof.", demoQaPage.getTitlesDropdownValue());
 
         demoQaPage.selectMultiValuesInColorsDropdown("Green", "Blue");
-        assertEquals("Dropdown should have values:", "Green, Blue", demoQaPage.getMultiColorsDropdownValues("//div[contains(@class,'multiValue')]"));
+        assertEquals("Dropdown should have values:", "Green, Blue", demoQaPage.getMultiColorsDropdownValues());
     }
 }

@@ -37,14 +37,13 @@ public class SelectDropdownValuesTestNgTest {
         demoQaPage.selectValueInCarsDropdown("saab");
         assertEquals(demoQaPage.getCarsDropdownValues(), "Saab, Opel", "Dropdown should have values:");
 
-        String valueLocator = "(//div[contains(@class,'singleValue')])";
-        demoQaPage.selectValueInGroupsDropdown("//div[@id='withOptGroup']//div[contains(text(),'Group 2, option 1')]");
-        assertEquals(demoQaPage.getTextOfElement(valueLocator + "[1]"), "Group 2, option 1", "Dropdown should have value:");
+        demoQaPage.selectValueInGroupsDropdown("Group 2, option 1");
+        assertEquals(demoQaPage.getGroupsDropdownValue(), "Group 2, option 1", "Dropdown should have value:");
 
-        demoQaPage.selectValueInTitlesDropdown("//div[@id='selectOne']//div[contains(text(),'Prof.')]");
-        assertEquals(demoQaPage.getTextOfElement(valueLocator + "[2]"), "Prof.", "Dropdown should have value:");
+        demoQaPage.selectValueInTitlesDropdown("Prof.");
+        assertEquals(demoQaPage.getTitlesDropdownValue(), "Prof.", "Dropdown should have value:");
 
         demoQaPage.selectMultiValuesInColorsDropdown("Green", "Blue");
-        assertEquals(demoQaPage.getMultiColorsDropdownValues("//div[contains(@class,'multiValue')]"), "Green, Blue", "Dropdown should have values:");
+        assertEquals(demoQaPage.getMultiColorsDropdownValues(), "Green, Blue", "Dropdown should have values:");
     }
 }
