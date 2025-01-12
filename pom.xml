@@ -81,6 +81,11 @@
             <artifactId>log4j-core</artifactId>
             <version>2.24.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.7.0</version>
+        </dependency>
     </dependencies>
     
 </project>
