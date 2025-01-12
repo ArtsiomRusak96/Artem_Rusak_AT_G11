@@ -20,7 +20,13 @@ public class DemoQaPage {
     private static final String CARS_DROPDOWN = "cars";
     private static final String GROUPS_DROPDOWN = "withOptGroup";
     private static final String TITLES_DROPDOWN = "selectOne";
-    private static final String MULTI_VALUE_COLORS_DROPDOWN = "(//div[contains(@class,'placeholder')])[1]";
+    private static final String MULTI_COLORS_DROPDOWN = "(//div[contains(@class,'placeholder')])[1]";
+    private static final String GROUPS_DROPDOWN_VALUES = "//div[@id='withOptGroup']//div[contains(text(),'";
+    private static final String TITLES_DROPDOWN_VALUES = "//div[@id='selectOne']//div[contains(text(),'";
+    private static final String MULTI_COLORS_DROPDOWN_VALUES = "//div[contains(text(),'";
+    private static final String GROUPS_DROPDOWN_SELECTED_VALUE = "(//div[contains(@class,'singleValue')])[1]";
+    private static final String TITLES_DROPDOWN_SELECTED_VALUE = "(//div[contains(@class,'singleValue')])[2]";
+    private static final String MULTI_COLORS_DROPDOWN_SELECTED_VALUE = "//div[contains(@class,'multiValue')]";
 
     public void openDemoQa() {
         webDriver.get(DEMO_QA_SITE);
@@ -53,23 +59,31 @@ public class DemoQaPage {
         findElement(By.xpath(xpath)).click();
     }
 
-    public void selectValueInGroupsDropdown(String xpath) {
-        selectValuesInDropdowns(GROUPS_DROPDOWN, xpath);
+    public void selectValueInGroupsDropdown(String value) {
+        selectValuesInDropdowns(GROUPS_DROPDOWN, GROUPS_DROPDOWN_VALUES + value + "')]");
     }
 
-    public void selectValueInTitlesDropdown(String xpath) {
-        selectValuesInDropdowns(TITLES_DROPDOWN, xpath);
+    public void selectValueInTitlesDropdown(String value) {
+        selectValuesInDropdowns(TITLES_DROPDOWN, TITLES_DROPDOWN_VALUES + value + "')]");
     }
 
     public void selectMultiValuesInColorsDropdown(String... colors) {
-        findElement(By.xpath(MULTI_VALUE_COLORS_DROPDOWN)).click();
+        findElement(By.xpath(MULTI_COLORS_DROPDOWN)).click();
         for (String color : colors) {
-            findElement(By.xpath("//div[contains(text(),'" + color + "')]")).click();
+            findElement(By.xpath(MULTI_COLORS_DROPDOWN_VALUES + color + "')]")).click();
         }
     }
 
-    public String getMultiColorsDropdownValues(String xpath) {
-        return webDriver.findElements(By.xpath(xpath))
+    public String getGroupsDropdownValue() {
+        return getTextOfElement(GROUPS_DROPDOWN_SELECTED_VALUE);
+    }
+
+    public String getTitlesDropdownValue() {
+        return getTextOfElement(TITLES_DROPDOWN_SELECTED_VALUE);
+    }
+
+    public String getMultiColorsDropdownValues() {
+        return webDriver.findElements(By.xpath(MULTI_COLORS_DROPDOWN_SELECTED_VALUE))
                 .stream().map(WebElement::getText).collect(Collectors.joining(", "));
     }
 

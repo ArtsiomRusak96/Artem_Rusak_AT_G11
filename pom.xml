@@ -86,6 +86,16 @@
             <artifactId>selenide</artifactId>
             <version>7.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-junit47</artifactId>
+            <version>3.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-testng</artifactId>
+            <version>3.5.2</version>
+        </dependency>
     </dependencies>
     
 </project>

@@ -1,7 +1,6 @@
 package tests.homework.selenium.testng;
 
 import driver.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -49,10 +48,6 @@ public class BookingParisTestNgTest {
         bookingPage.filterByFiveStars();
         bookingPage.sortByAscending();
 
-        String star = "(//div[@data-testid='rating-stars'])[1]";
-        bookingPage.wait(star);
-        int stars = webDriver.findElements(By.xpath(star + "/span")).size();
-
-        assertEquals(stars, 5, "The hotel rate should be:");
+        assertEquals(bookingPage.checkStarsQuantityFirstHotel(), 5, "The hotel rate should be:");
     }
 }

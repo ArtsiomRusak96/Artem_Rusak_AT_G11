@@ -7,13 +7,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.BookingPage;
 import utils.DatesGenerator;
 
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 
@@ -112,18 +110,12 @@ public class BookingSteps {
 
     @Then("Check the first hotel has {int} stars")
     public void checkStarsQuantity(int expectedStars) {
-        String star = "(//div[@data-testid='rating-stars'])[1]";
-        bookingPage.wait(star);
-        int stars = webDriver.findElements(By.xpath(star + "/span")).size();
-        assertEquals("The hotel rate should be:", expectedStars, stars);
+        assertEquals("The hotel rate should be:", expectedStars, bookingPage.checkStarsQuantityFirstHotel());
     }
 
     @Then("Check the opened hotel rate more than {int}")
     public void checkOpenedHotelRate(int number) {
-        String score = bookingPage.getTextOfElement("(//div[contains(text(),'Оценка')])[3]")
-                .replaceAll("[^0-9,]", "")
-                .replaceAll(",", ".");
-        double rate = Double.parseDouble(score);
+        double rate = bookingPage.checkHotelRate();
         assertTrue("Apartment rate should be equal or more than 9.0. Rate equals to: " + rate, rate >= number);
     }
 
@@ -134,11 +126,11 @@ public class BookingSteps {
 
     @Then("Currency tooltip appears")
     public void checkCurrencyTooltip() {
-        assertEquals("The currency tooltip should be:", "Выберите валюту", bookingPage.getTextOfElement("//div[contains(@style,'left: 525px')]"));
+        assertEquals("The currency tooltip should be:", "Выберите валюту", bookingPage.getCurrencyTooltipText());
     }
 
     @Then("Language tooltip appears")
     public void checkLanguageTooltip() {
-        assertEquals("The language tooltip should be:", "Выберите язык", bookingPage.getTextOfElement("//div[contains(@style,'left: 592px')]"));
+        assertEquals("The language tooltip should be:", "Выберите язык", bookingPage.getLanguageTooltipText());
     }
 }

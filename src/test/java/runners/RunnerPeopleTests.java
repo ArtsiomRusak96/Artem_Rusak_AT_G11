@@ -12,7 +12,5 @@ import tests.homework.people.junit.ParameterizedTests;
         ManualEngineerJUnitTests.class,
         ParameterizedTests.class
 })
-
 public class RunnerPeopleTests {
-
 }

@@ -44,12 +44,12 @@ public class DemoQaSteps {
         demoQaPage.selectValueInCarsDropdown(secondValue);
     }
 
-    @When("Select {string} in 'Groups' dropdown")
+    @When("Select {string} value in 'Groups' dropdown")
     public void selectValueInGroupsDropdown(String value) {
         demoQaPage.selectValueInGroupsDropdown(value);
     }
 
-    @When("Select {string} in 'Titles' dropdown")
+    @When("Select {string} value in 'Titles' dropdown")
     public void selectValueInTitlesDropdown(String value) {
         demoQaPage.selectValueInTitlesDropdown(value);
     }
@@ -69,18 +69,18 @@ public class DemoQaSteps {
         assertEquals("Dropdown should have values:", expectedValues, demoQaPage.getCarsDropdownValues());
     }
 
-    @Then("Check 'Groups' dropdown have {string} value")
+    @Then("Check 'Groups' dropdown has {string} value")
     public void checkGroupsDropdownValue(String expectedValue) {
-        assertEquals("Dropdown should have value:", expectedValue, demoQaPage.getTextOfElement("(//div[contains(@class,'singleValue')])[1]"));
+        assertEquals("Dropdown should have value:", expectedValue, demoQaPage.getGroupsDropdownValue());
     }
 
-    @Then("Check 'Titles' dropdown have {string} value")
+    @Then("Check 'Titles' dropdown has {string} value")
     public void checkTitlesDropdownValue(String expectedValue) {
-        assertEquals("Dropdown should have value:", expectedValue, demoQaPage.getTextOfElement("(//div[contains(@class,'singleValue')])[2]"));
+        assertEquals("Dropdown should have value:", expectedValue, demoQaPage.getTitlesDropdownValue());
     }
 
     @Then("Check 'Multi Colors' dropdown have {string} values")
     public void checkMultiColorsDropdownValues(String expectedValues) {
-        assertEquals("Dropdown should have values:", expectedValues, demoQaPage.getMultiColorsDropdownValues("//div[contains(@class,'multiValue')]"));
+        assertEquals("Dropdown should have values:", expectedValues, demoQaPage.getMultiColorsDropdownValues());
     }
 }

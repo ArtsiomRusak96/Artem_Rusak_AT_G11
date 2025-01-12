@@ -4,7 +4,6 @@ import driver.Driver;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.BookingPage;
 import utils.DatesGenerator;
@@ -49,10 +48,6 @@ public class BookingParisJUnitTest {
         bookingPage.filterByFiveStars();
         bookingPage.sortByAscending();
 
-        String star = "(//div[@data-testid='rating-stars'])[1]";
-        bookingPage.wait(star);
-        int stars = webDriver.findElements(By.xpath(star + "/span")).size();
-
-        assertEquals("The hotel rate should be:", 5, stars);
+        assertEquals("The hotel rate should be:", 5, bookingPage.checkStarsQuantityFirstHotel());
     }
 }
