@@ -1,4 +1,4 @@
-package tests.classwork;
+package tests.classwork.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Locale;
 
-public class WeatherTest {
+public class WeatherSeleniumTest {
 
     public static void main(String[] args) {
 
