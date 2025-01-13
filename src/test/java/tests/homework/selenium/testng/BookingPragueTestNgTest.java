@@ -31,7 +31,7 @@ public class BookingPragueTestNgTest {
     @Test
     public void bookingPragueTest() {
 
-        LocalDate startDate = DatesGenerator.generateStartDate(2);
+        LocalDate startDate = DatesGenerator.generateStartDateDaysAhead(2);
         LocalDate endDate = DatesGenerator.generateEndDate(startDate, 5);
 
         bookingPage.openBooking();
