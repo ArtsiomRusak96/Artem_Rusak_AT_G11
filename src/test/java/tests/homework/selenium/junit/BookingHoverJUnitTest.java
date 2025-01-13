@@ -31,10 +31,10 @@ public class BookingHoverJUnitTest {
         bookingPage.openBooking();
         bookingPage.closePopup();
 
-        bookingPage.hoverOnCurrency();
+        bookingPage.hoverOnElement(BookingPage.CURRENCY);
         assertEquals("The currency tooltip should be:", "Выберите валюту", bookingPage.getCurrencyTooltipText());
 
-        bookingPage.hoverOnLanguage();
+        bookingPage.hoverOnElement(BookingPage.LANGUAGE);
         assertEquals("The language tooltip should be:", "Выберите язык", bookingPage.getLanguageTooltipText());
     }
 }
