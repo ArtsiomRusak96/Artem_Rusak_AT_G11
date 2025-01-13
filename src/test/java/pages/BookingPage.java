@@ -123,14 +123,6 @@ public class BookingPage {
         new Actions(webDriver).moveToElement(webDriver.findElement(By.xpath(xpath))).perform();
     }
 
-//    public void hoverOnCurrency() {
-//        hoverOnElement(CURRENCY);
-//    }
-//
-//    public void hoverOnLanguage() {
-//        hoverOnElement(LANGUAGE);
-//    }
-
     public String getCurrencyTooltipText() {
         return getTextOfElement(CURRENCY_TOOLTIP);
     }
