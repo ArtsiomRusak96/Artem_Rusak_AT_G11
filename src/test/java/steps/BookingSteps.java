@@ -57,7 +57,7 @@ public class BookingSteps {
 
     @And("Set desired dates - start in {int} days and duration {int} days")
     public void setDates(int startInDays, int duration) {
-        LocalDate startDate = DatesGenerator.generateStartDate(startInDays);
+        LocalDate startDate = DatesGenerator.generateStartDateDaysAhead(startInDays);
         LocalDate endDate = DatesGenerator.generateEndDate(startDate, duration);
         bookingPage.setDates(startDate, endDate);
     }

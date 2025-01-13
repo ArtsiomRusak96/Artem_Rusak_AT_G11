@@ -33,7 +33,7 @@ public class BookingLondonJUnitTest {
     @Test
     public void bookingLondonTest() {
 
-        LocalDate startDate = DatesGenerator.generateStartDate(4);
+        LocalDate startDate = DatesGenerator.generateStartDateDaysAhead(4);
         LocalDate endDate = DatesGenerator.generateEndDate(startDate, 2);
 
         bookingPage.openBooking();

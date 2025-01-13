@@ -11,6 +11,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookingPage {
 
@@ -39,9 +41,13 @@ public class BookingPage {
     private static final String NINE_PLUS_RATE_FILTER = "(//input[@name='review_score=90']/following-sibling::label/span[2])[1]";
     private static final String SORTING_DROPDOWN = "//button[@data-testid='sorters-dropdown-trigger']";
     private static final String RATE_ASCENDING = "//button[@aria-label='Оценка объекта (по возрастанию)']";
-    private static final String HOTEL_RESULTS = "(//div[@data-testid='property-card-container'])";
-    private static final String HOTEL_TITLE = "//div[@data-testid='title']";
-    private static final String FIRST_HOTEL_IN_LIST = "//div[@data-testid='property-card'][1]//div[@data-testid='title']";
+    private static final String HOTELS_RESULT = "//div[@data-testid='property-card']";
+    private static final String HOTELS_TITLE = "//div[@data-testid='title']";
+    private static final String HOTELS_HEART = "//button[@data-testid='wishlist-button']";
+    private static final String MY_NEXT_TRIPS = "//div[@data-testid='wishlist-popover-content']//span/span";
+    private static final String HOTELS_IN_MY_NEXT_TRIPS_LIST = "(//div[@data-testid='closable-property-card-wrap-outer'])";
+    private static final String HOTELS_TITLE_IN_MY_NEXT_TRIPS_LIST = "//h3";
+    private static final String RGB_RED_COLOR = "rgba(212, 17, 30, 1)";
 
     public void openBooking() {
         webDriver.get(BOOKING_SITE);
@@ -95,7 +101,7 @@ public class BookingPage {
 
     public void sortByAscending() {
         findElement(SORTING_DROPDOWN).click();
-        wait(FIRST_HOTEL_IN_LIST);
+        wait(HOTELS_RESULT);
         findElement(RATE_ASCENDING).click();
     }
 
@@ -121,7 +127,7 @@ public class BookingPage {
 
     public int checkStarsQuantityFirstHotel() {
         wait(FIRST_HOTEL_STARS);
-        return webDriver.findElements(By.xpath(FIRST_HOTEL_STARS)).size();
+        return findElements(FIRST_HOTEL_STARS).size();
     }
 
     public double checkHotelRate() {
@@ -131,7 +137,50 @@ public class BookingPage {
     }
 
     public void openFirstHotel() {
-        wait(FIRST_HOTEL_IN_LIST).click();
+        wait(HOTELS_RESULT + "[1]" + HOTELS_TITLE).click();
+    }
+
+    public void addToFavoriteFirstHotel() {
+        wait(HOTELS_RESULT + "[1]" + HOTELS_HEART).click();
+    }
+
+    public void addToFavoriteLastHotel() throws InterruptedException {
+        int previousQuantityHotels = 0;
+        while (true) {
+            int currentQuantityHotels = findElements(HOTELS_RESULT).size();
+            if (currentQuantityHotels == previousQuantityHotels) {
+                break;
+            }
+            previousQuantityHotels = currentQuantityHotels;
+            new Actions(webDriver).moveToElement(findElement(HOTELS_RESULT + "[last()]")).perform();
+            try {
+                new WebDriverWait(webDriver, Duration.ofSeconds(5))
+                        .until(driver -> findElements(HOTELS_RESULT).size() > currentQuantityHotels);
+            } catch (TimeoutException e) {
+                System.out.println(e.getClass().getSimpleName() + ":" + e.getMessage());
+            }
+        }
+        new Actions(webDriver)
+                .moveToElement(findElement(HOTELS_RESULT + "[last()]" + HOTELS_HEART))
+                .click()
+                .perform();
+    }
+
+    public void openMyNextTrips() {
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", wait(MY_NEXT_TRIPS));
+        webDriver.switchTo().window(new ArrayList<>(webDriver.getWindowHandles()).get(1));
+    }
+
+    public String getFirstHotelName() {
+        return getTextOfElement(HOTELS_RESULT + "[1]" + HOTELS_TITLE);
+    }
+
+    public String getLastHotelName() {
+        return getTextOfElement(HOTELS_RESULT + "[last()]" + HOTELS_TITLE);
+    }
+
+    public String getHotelNameInMyNextTripsList(int hotelNumber) {
+        return getTextOfElement(HOTELS_IN_MY_NEXT_TRIPS_LIST + "[" + hotelNumber + "]" + HOTELS_TITLE_IN_MY_NEXT_TRIPS_LIST);
     }
 
     public String getTextOfElement(String xpath) {
@@ -139,11 +188,29 @@ public class BookingPage {
     }
 
     public void changeBackgroundAndTitleColors(String hotelNumber, String backgroundColor, String titleColor) {
-        WebElement hotel = findElement(HOTEL_RESULTS + "[" + hotelNumber + "]");
-        WebElement hotelTitle = findElement(HOTEL_RESULTS + "[" + hotelNumber + "]" + HOTEL_TITLE);
+        WebElement hotel = findElement(HOTELS_RESULT + "[" + hotelNumber + "]");
+        WebElement hotelTitle = findElement(HOTELS_RESULT + "[" + hotelNumber + "]" + HOTELS_TITLE);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true)", hotel);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.backgroundColor = '" + backgroundColor + "'", hotel);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.color = '" + titleColor + "'", hotelTitle);
+    }
+
+    private boolean isHotelHeartRed(String xpath) {
+        return new WebDriverWait(webDriver, Duration.ofSeconds(5))
+                .until(driver -> RGB_RED_COLOR.equals(findElement(xpath).getCssValue("color")));
+    }
+
+    public boolean isFirstHotelHeartRed() {
+        return isHotelHeartRed(HOTELS_RESULT + "[1]" + HOTELS_HEART);
+    }
+
+    public boolean isLastHotelHeartRed() {
+        return isHotelHeartRed(HOTELS_RESULT + "[last()]" + HOTELS_HEART);
+    }
+
+    public int checkHotelsQuantityInMyNextTripsList() {
+        wait(HOTELS_IN_MY_NEXT_TRIPS_LIST);
+        return findElements(HOTELS_IN_MY_NEXT_TRIPS_LIST).size();
     }
 
     public Path takeScreenshot(String fileName) {
@@ -157,11 +224,15 @@ public class BookingPage {
         return screenshotPath;
     }
 
-    private WebElement findElement(String xpath) {
+    public WebElement findElement(String xpath) {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement wait(String xpath) {
+    private List<WebElement> findElements(String xpath) {
+        return webDriver.findElements(By.xpath(xpath));
+    }
+
+    private WebElement wait(String xpath) {
         return new WebDriverWait(webDriver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
