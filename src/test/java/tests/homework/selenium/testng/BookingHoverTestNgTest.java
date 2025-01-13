@@ -31,10 +31,10 @@ public class BookingHoverTestNgTest {
         bookingPage.openBooking();
         bookingPage.closePopup();
 
-        bookingPage.hoverOnCurrency();
+        bookingPage.hoverOnElement(BookingPage.CURRENCY);
         assertEquals(bookingPage.getCurrencyTooltipText(), "Выберите валюту", "The currency tooltip should be:");
 
-        bookingPage.hoverOnLanguage();
+        bookingPage.hoverOnElement(BookingPage.LANGUAGE);
         assertEquals(bookingPage.getLanguageTooltipText(), "Выберите язык", "The language tooltip should be:");
     }
 }

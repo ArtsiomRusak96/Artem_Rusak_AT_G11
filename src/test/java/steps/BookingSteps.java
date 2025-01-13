@@ -47,12 +47,12 @@ public class BookingSteps {
 
     @When("Hover on currency")
     public void hoverOnCurrency() {
-        bookingPage.hoverOnCurrency();
+        bookingPage.hoverOnElement(BookingPage.CURRENCY);
     }
 
     @When("Hover on language")
     public void hoverOnLanguage() {
-        bookingPage.hoverOnLanguage();
+        bookingPage.hoverOnElement(BookingPage.LANGUAGE);
     }
 
     @And("Set desired dates - start in {int} days and duration {int} days")

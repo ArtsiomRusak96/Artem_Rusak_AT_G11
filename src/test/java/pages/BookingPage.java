@@ -31,9 +31,7 @@ public class BookingPage {
     private static final String ADD_PERSON_PLUS = "//*[@id='group_adults']/following-sibling::div[2]/button[2]";
     private static final String ADD_ROOM_PLUS = "//*[@id='no_rooms']/following-sibling::div[2]/button[2]";
     private static final String SEARCH_BUTTON = "//*[@type='submit']";
-    private static final String CURRENCY = "//button[@data-testid='header-currency-picker-trigger']";
     private static final String CURRENCY_TOOLTIP = "//div[contains(@style,'left: 525px')]";
-    private static final String LANGUAGE = "//button[@data-testid='header-language-picker-trigger']";
     private static final String LANGUAGE_TOOLTIP = "//div[contains(@style,'left: 592px')]";
     private static final String FIRST_HOTEL_STARS = "(//div[@data-testid='rating-stars'])[1]/span";
     private static final String HOTEL_RATE = "(//div[contains(text(),'Оценка')])[3]";
@@ -49,6 +47,14 @@ public class BookingPage {
     private static final String HOTELS_TITLE_IN_MY_NEXT_TRIPS_LIST = "//h3";
     private static final String RGB_RED_COLOR = "rgba(212, 17, 30, 1)";
 
+    public static final String BOOKING_LOGO = "//div[@class='Header_logo']";
+    public static final String CURRENCY = "//button[@data-testid='header-currency-picker-trigger']";
+    public static final String LANGUAGE = "//button[@data-testid='header-language-picker-trigger']";
+    public static final String HELP_CENTER = "//a[@data-testid='header-help-center']";
+    public static final String REGISTRATION_PROPERTY = "//a[@data-testid='header-custom-action-button']";
+    public static final String REGISTRATION_ACCOUNT = "//a[@data-testid='header-sign-up-button']";
+    public static final String SIGN_IN = "//a[@data-testid='header-sign-in-button']";
+
     public void openBooking() {
         webDriver.get(BOOKING_SITE);
     }
@@ -57,6 +63,14 @@ public class BookingPage {
         try {
             wait(CLOSE_GENIUS_POPUP).click();
         } catch (Exception ignored) {
+        }
+    }
+
+    public boolean isHeaderExist(String xpath) {
+        try {
+            return wait(xpath).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
         }
     }
 
@@ -105,16 +119,8 @@ public class BookingPage {
         findElement(RATE_ASCENDING).click();
     }
 
-    private void hoverOnElement(String xpath) {
+    public void hoverOnElement(String xpath) {
         new Actions(webDriver).moveToElement(webDriver.findElement(By.xpath(xpath))).perform();
-    }
-
-    public void hoverOnCurrency() {
-        hoverOnElement(CURRENCY);
-    }
-
-    public void hoverOnLanguage() {
-        hoverOnElement(LANGUAGE);
     }
 
     public String getCurrencyTooltipText() {
