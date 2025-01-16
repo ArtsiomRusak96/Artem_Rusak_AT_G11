@@ -1,5 +1,7 @@
 package tests.classwork.selenium;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +16,8 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 
 public class WeatherSeleniumTest {
+
+    private static final Logger LOGGER = LogManager.getLogger(WeatherSeleniumTest.class);
 
     public static void main(String[] args) {
 
@@ -35,7 +39,7 @@ public class WeatherSeleniumTest {
 
         WebElement tomorrowTemperatureAtTwelvePM = webDriver
                 .findElement(By.xpath("//*[contains(@aria-label,'Celsius " + nextDay + " 12:00')][2]"));
-        System.out.println(tomorrowTemperatureAtTwelvePM.getDomAttribute("aria-label"));
+        LOGGER.info(tomorrowTemperatureAtTwelvePM.getDomAttribute("aria-label"));
 
         webDriver.quit();
     }

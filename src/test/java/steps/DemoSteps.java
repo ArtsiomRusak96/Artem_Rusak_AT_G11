@@ -1,5 +1,7 @@
 package steps;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pages.DemoPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DemoSteps {
 
+    private static final Logger LOGGER = LogManager.getLogger(DemoSteps.class);
+
     WebDriver driver = new ChromeDriver();
     DemoPage demoPage = new DemoPage(driver);
 
@@ -17,7 +21,7 @@ public class DemoSteps {
     public void openSite() {
         String url = "https://booking.com";
         driver.get(url);
-        System.out.println("Opening url: " + url);
+        LOGGER.info("Opening url: '{}'", url);
     }
 
     @When("I fill {string} into form")

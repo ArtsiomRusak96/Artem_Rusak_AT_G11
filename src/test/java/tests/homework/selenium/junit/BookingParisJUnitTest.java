@@ -1,6 +1,8 @@
 package tests.homework.selenium.junit;
 
 import driver.Driver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,17 +16,21 @@ import static org.junit.Assert.assertEquals;
 
 public class BookingParisJUnitTest {
 
+    private static final Logger LOGGER = LogManager.getLogger(BookingParisJUnitTest.class);
+
     WebDriver webDriver;
     BookingPage bookingPage;
 
     @Before
     public void launchWebDriver() {
+        LOGGER.info("Test has started");
         webDriver = Driver.getDriver();
         bookingPage = new BookingPage(webDriver);
     }
 
     @After
     public void closeWebDriver() {
+        LOGGER.info("Test has ended");
         Driver.closeDriver();
     }
 
@@ -48,6 +54,7 @@ public class BookingParisJUnitTest {
         bookingPage.filterByFiveStars();
         bookingPage.sortByAscending();
 
+        LOGGER.debug("Checking the hotel rate");
         assertEquals("The hotel rate should be:", 5, bookingPage.checkStarsQuantityFirstHotel());
     }
 }

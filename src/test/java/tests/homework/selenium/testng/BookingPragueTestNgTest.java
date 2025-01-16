@@ -1,6 +1,8 @@
 package tests.homework.selenium.testng;
 
 import driver.Driver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -14,17 +16,21 @@ import static org.testng.Assert.assertTrue;
 
 public class BookingPragueTestNgTest {
 
+    private static final Logger LOGGER = LogManager.getLogger(BookingPragueTestNgTest.class);
+
     WebDriver webDriver;
     BookingPage bookingPage;
 
     @BeforeClass
     public void launchWebDriver() {
+        LOGGER.info("Test has started");
         webDriver = Driver.getDriver();
         bookingPage = new BookingPage(webDriver);
     }
 
     @AfterClass
     public void closeWebDriver() {
+        LOGGER.info("Test has ended");
         Driver.closeDriver();
     }
 
@@ -47,6 +53,7 @@ public class BookingPragueTestNgTest {
         bookingPage.openFirstHotel();
 
         double rate = bookingPage.checkHotelRate();
+        LOGGER.debug("Checking the hotel rate");
         assertTrue(rate >= 9, "Apartment rate should be equal or more than 9.0. Rate equals to: " + rate);
     }
 }
