@@ -1,4 +1,4 @@
-package tests.classwork;
+package tests.classwork.cucumber;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
